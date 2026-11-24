@@ -22,7 +22,7 @@ static void start_binder_thread_pool(void)
     void (*start)(void) = NULL;
     if (binder)
     {
-        (void (*)(void))android_dlsym(binder, "ABinderProcess_startThreadPool");
+        start = (void (*)(void))android_dlsym(binder, "ABinderProcess_startThreadPool");
     }
 
     if (!start) {
